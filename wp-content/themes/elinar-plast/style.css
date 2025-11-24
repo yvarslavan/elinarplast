@@ -23,7 +23,7 @@ Text Domain: elinar-plast
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Manrope', sans-serif;
     --container-width: 1280px;
-    --header-height: 80px;
+    --header-height: 100px;
     --radius: 8px;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -188,6 +188,10 @@ img {
     font-size: 1.125rem;
 }
 
+.section-desc-block p {
+    text-align: justify;
+}
+
 /* Grid System */
 .grid-3 {
     display: grid;
@@ -199,6 +203,160 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+}
+
+/* Dropdown Menu Styles - Fixed */
+.main-nav>ul {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 500;
+}
+
+.main-nav>ul>li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Hide sub-menu by default */
+.main-nav ul li ul.sub-menu {
+    display: none !important;
+}
+
+/* Style for the dropdown container */
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2c2c2c;
+    min-width: 200px;
+    max-width: 240px;
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 1000;
+    border-top: 3px solid var(--color-primary);
+    border-radius: 0 0 4px 4px;
+    list-style: none;
+    margin: 0;
+}
+
+/* Show dropdown on hover */
+.main-nav ul li:hover>ul.sub-menu,
+.main-nav ul li.menu-item-has-children:hover>ul.sub-menu {
+    display: block !important;
+}
+
+/* Dropdown items */
+.sub-menu li {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sub-menu li:last-child {
+    border-bottom: none;
+}
+
+.sub-menu li a {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    text-transform: none;
+    /* Normal case for sub-items */
+    color: #cbd5e1;
+    display: block;
+    width: 100%;
+    line-height: 1.4;
+    white-space: normal;
+    /* Allow text wrapping if needed */
+}
+
+.sub-menu li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    padding-left: 1.8rem;
+    /* Slight indent on hover */
+}
+
+/* Page Specific Styles: Services */
+.page-hero {
+    padding: 4rem 0;
+    margin-bottom: 0;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.page-hero .lead {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    max-width: 800px;
+}
+
+.separator {
+    border: 0;
+    border-top: 1px solid #cbd5e1;
+    margin: 3rem 0;
+}
+
+.separator-light {
+    border: 0;
+    border-top: 1px solid #f1f5f9;
+    margin: 3rem 0;
+}
+
+.service-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.service-list li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.image-placeholder {
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+    padding: 2rem;
+}
+
+.placeholder-lg {
+    height: 300px;
+    width: 100%;
+}
+
+/* Helper classes for Layout */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
 }
 
 /* Header */
@@ -228,12 +386,11 @@ img {
 .brand-logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* Reduced gap */
+    gap: 0;
     text-decoration: none;
     flex-shrink: 0;
-    margin-right: 1rem;
-    /* Reduced margin */
+    margin-right: 5rem;
+    /* Increased margin further to prevent overlap with "ГЛАВНАЯ" */
 }
 
 .main-nav {
@@ -257,20 +414,23 @@ img {
 }
 
 .main-nav a {
-    font-family: var(--font-heading);
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-weight: 500;
     color: #fff;
-    font-size: 0.8rem;
-    /* Slightly smaller */
+    font-size: 0.95rem;
+    /* Slightly larger */
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    /* Reduced tracking */
+    letter-spacing: 0.05em;
+    /* Increased tracking for readability */
     transition: color 0.2s;
     position: relative;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .main-nav a:hover {
@@ -401,6 +561,7 @@ img {
     font-size: 1.25rem;
     color: #cbd5e1;
     margin-bottom: 2.5rem;
+    text-align: justify;
 }
 
 .hero-actions {
@@ -472,10 +633,10 @@ img {
 }
 
 .feature-icon {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 800;
-    color: rgba(15, 76, 92, 0.1);
-    margin-bottom: 1rem;
+    color: #00838F;
+    margin-bottom: 1.5rem;
     line-height: 1;
 }
 
@@ -495,6 +656,10 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+.split-content p {
+    text-align: justify;
 }
 
 .tech-list {
@@ -662,6 +827,50 @@ img {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
+    }
+
+    .main-nav>ul>li {
+        display: block;
+        width: 100%;
+        height: auto;
+        /* Reset height from desktop */
+    }
+
+    .main-nav a {
+        color: var(--color-secondary);
+        font-size: 1.1rem;
+        justify-content: center;
+        width: 100%;
+        /* Ensure click area is full width */
+    }
+
+    /* Fix Mobile Submenus */
+    .main-nav ul li ul.sub-menu {
+        display: block !important;
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        padding: 0.5rem 0;
+        width: 100%;
+        min-width: auto;
+        max-width: none;
+    }
+
+    .sub-menu li {
+        border: none;
+    }
+
+    .sub-menu li a {
+        color: #64748b;
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .sub-menu li a:hover {
+        color: var(--color-primary);
+        background: transparent;
+        padding-left: 0.5rem;
     }
 
     .menu-toggle {
@@ -896,8 +1105,8 @@ tr:nth-child(even) {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
 }
 
 .logo-text {
@@ -1198,5 +1407,107 @@ tr:nth-child(even) {
 
     .pvc-title {
         font-size: 1.75rem;
+    }
+}
+
+/* --- NEW STYLES FOR LANDING UPDATE --- */
+
+/* Hero Image Layer */
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+/* Stats Section */
+.stats-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+/* Clients Grid */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.client-logo {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: 700;
+    border-radius: var(--radius);
+    transition: all 0.3s;
+}
+
+.client-logo:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow);
+}
+
+/* Production Steps Specifics */
+.production-steps {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Image Placeholders */
+.image-placeholder {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px dashed #cbd5e1;
+}
+
+/* Mobile adjustments for new sections */
+@media (max-width: 768px) {
+    .stats-grid {
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .production-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .reverse-mobile {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
