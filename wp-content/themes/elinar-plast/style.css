@@ -389,23 +389,63 @@ img {
     gap: 0;
     text-decoration: none;
     flex-shrink: 0;
-    margin-right: 5rem;
-    /* Increased margin further to prevent overlap with "ГЛАВНАЯ" */
+    margin-right: 2rem;
+    /* Adjusted margin */
+}
+
+.logo-image {
+    height: 80px;
+    width: auto;
+    max-width: 320px;
+    display: block;
+    background-color: transparent;
+}
+
+.header-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.social-icon.whatsapp-icon {
+    color: #25D366;
+}
+
+.social-icon.telegram-icon {
+    color: #0088cc;
 }
 
 .main-nav {
-    flex-grow: 1;
+    flex-grow: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Align menu to the left (near logo) */
     min-width: 0;
     /* Allow shrinking */
+    padding-left: 0;
+    margin-right: 3rem;
 }
 
 .main-nav ul {
     display: flex;
     list-style: none;
-    gap: 1rem;
-    /* Reduced gap from 2rem to 1rem */
+    gap: 0.5rem;
+    /* Reduced gap */
     margin: 0;
     padding: 0;
     align-items: center;
@@ -417,11 +457,10 @@ img {
     font-family: var(--font-main);
     font-weight: 500;
     color: #fff;
-    font-size: 0.95rem;
-    /* Slightly larger */
+    font-size: 0.9rem;
+    /* Increased for better readability */
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    /* Increased tracking for readability */
+    letter-spacing: 0.04em;
     transition: color 0.2s;
     position: relative;
     display: flex;
@@ -458,14 +497,63 @@ img {
     width: 100%;
 }
 
+/* Active menu item styling */
+.main-nav .current-menu-item>a,
+.main-nav .current_page_item>a,
+.main-nav .current-menu-ancestor>a,
+.main-nav .current-page-ancestor>a,
+.main-nav li.current-menu-item>a,
+.main-nav li.current_page_item>a {
+    color: #11B3C9 !important;
+}
+
+.main-nav .current-menu-item>a::after,
+.main-nav .current_page_item>a::after,
+.main-nav .current-menu-ancestor>a::after,
+.main-nav .current-page-ancestor>a::after,
+.main-nav li.current-menu-item>a::after,
+.main-nav li.current_page_item>a::after {
+    width: 100% !important;
+    background: #11B3C9 !important;
+}
+
+/* Dropdown indicator for menu items with children */
+.main-nav .menu-item-has-children>a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.main-nav .menu-item-has-children>a::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    order: 2;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.main-nav .menu-item-has-children:hover>a::before {
+    opacity: 1;
+    transform: translateY(2px);
+}
+
+/* Add extra spacing after the last menu item */
+.main-nav>ul>li:last-child {
+    margin-right: 5rem;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    /* Reduced gap */
+    gap: 1.5rem;
     flex-shrink: 0;
-    margin-left: 1rem;
-    /* Reduced margin */
+    margin-left: auto;
+    padding-left: 3rem;
 }
 
 .contact-phone {
@@ -487,13 +575,17 @@ img {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    position: relative;
+    z-index: 9999;
 }
 
 .menu-toggle span {
     width: 25px;
-    height: 2px;
+    height: 3px;
     background: #fff;
-    /* White toggle */
+    display: block;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
@@ -825,15 +917,17 @@ img {
 
     .main-nav ul {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 0.5rem;
         text-align: center;
+        padding: 0;
     }
 
     .main-nav>ul>li {
         display: block;
         width: 100%;
         height: auto;
-        /* Reset height from desktop */
+        margin: 0 !important;
+        /* Reset margin from desktop */
     }
 
     .main-nav a {
@@ -841,7 +935,27 @@ img {
         font-size: 1.1rem;
         justify-content: center;
         width: 100%;
-        /* Ensure click area is full width */
+        padding: 0.8rem 0;
+        /* More consistent padding */
+    }
+
+    /* Remove underline on mobile */
+    .main-nav a::after,
+    .main-nav .current-menu-item>a::after,
+    .main-nav .current_page_item>a::after,
+    .main-nav .current-menu-ancestor>a::after,
+    .main-nav .current-page-ancestor>a::after,
+    .main-nav li.current-menu-item>a::after,
+    .main-nav li.current_page_item>a::after {
+        display: none !important;
+    }
+
+    /* Mobile Active State styling */
+    .main-nav .current-menu-item>a,
+    .main-nav .current_page_item>a {
+        color: var(--color-primary) !important;
+        background: rgba(17, 179, 201, 0.05);
+        border-radius: 8px;
     }
 
     /* Fix Mobile Submenus */
@@ -851,20 +965,23 @@ img {
         background: transparent;
         box-shadow: none;
         border: none;
-        padding: 0.5rem 0;
+        padding: 0;
         width: 100%;
         min-width: auto;
         max-width: none;
+        margin-top: 0.5rem;
     }
 
     .sub-menu li {
         border: none;
+        margin: 0;
     }
 
     .sub-menu li a {
         color: #64748b;
         font-size: 1rem;
-        padding: 0.5rem;
+        padding: 0.5rem 0;
+        /* Center aligned padding */
     }
 
     .sub-menu li a:hover {
@@ -1509,5 +1626,307 @@ tr:nth-child(even) {
     .reverse-mobile {
         display: flex;
         flex-direction: column-reverse;
+    }
+}
+
+/* Responsive Lightbox */
+@media only screen and (max-width: 700px) {
+    .lightbox-content {
+        width: 100%;
+    }
+}
+
+/* Lightbox Modal Styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-modal.show {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 80vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.1rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Floating Action Button (FAB) */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+.fab-trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.fab-trigger:hover {
+    transform: scale(1.1);
+    background-color: #11B3C9;
+}
+
+.fab-container.active .fab-trigger {
+    transform: rotate(45deg);
+    background-color: #ef4444;
+}
+
+.fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    /* Prevent clicking when hidden */
+}
+
+.fab-container.active .fab-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    /* Enable clicking when visible */
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.fab-item:hover {
+    transform: scale(1.1);
+}
+
+.fab-item.whatsapp {
+    background-color: #25D366;
+}
+
+.fab-item.telegram {
+    background-color: #0088cc;
+}
+
+@media (max-width: 640px) {
+    .fab-container {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .fab-trigger {
+        width: 50px;
+        height: 50px;
+    }
+
+    .fab-item {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 35px;
+    /* Aligned with FAB */
+    right: 110px;
+    /* Moved left of FAB */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    /* Brand turquoise background */
+    border: none;
+    color: white;
+    /* White icon */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1400;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    background: #0e8a9c;
+    /* Darker turquoise on hover */
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn svg path {
+    fill: currentColor;
+    /* Ensure SVG uses text color */
+}
+
+@media (max-width: 640px) {
+    .scroll-top-btn {
+        right: 90px;
+        bottom: 25px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .scroll-top-btn {
+        right: 25px;
+        bottom: 90px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* =========================================
+   FORCE MOBILE MENU VISIBILITY FIX
+   ========================================= */
+
+/* 1. Hide on desktop (screens larger than 1024px) */
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none !important;
+    }
+}
+
+/* 2. Show on mobile/tablet (screens 1024px and smaller) */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex !important;
+        position: absolute !important;
+        top: 50% !important;
+        right: 20px !important;
+        transform: translateY(-50%) !important;
+        z-index: 99999 !important;
+        width: 30px !important;
+        height: 24px !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+    }
+
+    .menu-toggle span {
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #fff !important;
+        border-radius: 2px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Ensure header container doesn't hide overflow */
+    .site-header,
+    .site-header .container {
+        overflow: visible !important;
+    }
+
+    /* Hide desktop actions on mobile */
+    .header-actions {
+        display: none !important;
     }
 }

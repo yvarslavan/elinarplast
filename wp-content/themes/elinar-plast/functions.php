@@ -14,7 +14,7 @@ add_action('after_setup_theme', 'elinar_setup');
 
 function elinar_scripts()
 {
-    wp_enqueue_style('elinar-style', get_stylesheet_uri());
+    wp_enqueue_style('elinar-style', get_stylesheet_uri(), array(), '1.0.1'); // Updated version
     // Enqueue Google Fonts (Inter and Manrope)
     wp_enqueue_style('elinar-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap');
 
