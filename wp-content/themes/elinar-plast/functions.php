@@ -14,7 +14,7 @@ add_action('after_setup_theme', 'elinar_setup');
 
 function elinar_scripts()
 {
-    wp_enqueue_style('elinar-style', get_stylesheet_uri(), array(), '1.0.1'); // Updated version
+    wp_enqueue_style('elinar-style', get_stylesheet_uri(), array(), '1.0.2'); // Updated version
     // Enqueue Google Fonts (Inter and Manrope)
     wp_enqueue_style('elinar-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap');
 
@@ -43,6 +43,12 @@ add_filter('template_include', function ($template) {
     $url_path = $_SERVER['REQUEST_URI'];
     if (strpos($url_path, 'development-production') !== false) {
         $new_template = locate_template(array('page-services-development.php'));
+        if ('' != $new_template) {
+            return $new_template;
+        }
+    }
+    if (strpos($url_path, 'about') !== false) {
+        $new_template = locate_template(array('page-about.php'));
         if ('' != $new_template) {
             return $new_template;
         }

@@ -8,6 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Mobile Submenu Toggle
+    const menuItemsWithChildren = document.querySelectorAll('.menu-item-has-children > a');
+    menuItemsWithChildren.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+            // Check if we are on mobile (or if the menu is in mobile mode)
+            // We can check if the menu toggle is visible or rely on window width,
+            // but since we want this behavior for the mobile menu, checking width is safer
+            // or just applying it always if the link is '#'
+
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('open');
+            }
+        });
+    });
+
     // Highlight active menu item based on current URL
     const currentUrl = window.location.href.replace(/\/$/, ''); // Remove trailing slash
     const menuLinks = document.querySelectorAll('.main-nav a');
@@ -55,13 +72,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sticky Header Shadow on scroll
     const header = document.querySelector('.site-header');
+    let headerShadowActive = false;
+
     window.addEventListener('scroll', function () {
         if (window.scrollY > 10) {
-            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            if (!headerShadowActive) {
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                headerShadowActive = true;
+            }
         } else {
-            header.style.boxShadow = 'none';
+            if (headerShadowActive) {
+                header.style.boxShadow = 'none';
+                headerShadowActive = false;
+            }
         }
-    });
+    }, { passive: true });
 
     // PVC Modal Trigger
     const pvcTrigger = document.getElementById('pvc-modal-trigger');
@@ -184,17 +209,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- SCROLL TO TOP BUTTON ---
     const scrollBtn = document.getElementById('scroll-top');
+    let scrollBtnVisible = false;
+
     const toggleScrollBtn = () => {
         if (!scrollBtn) return;
         if (window.scrollY > 200) {
-            scrollBtn.classList.add('visible');
+            if (!scrollBtnVisible) {
+                scrollBtn.classList.add('visible');
+                scrollBtnVisible = true;
+            }
         } else {
-            scrollBtn.classList.remove('visible');
+            if (scrollBtnVisible) {
+                scrollBtn.classList.remove('visible');
+                scrollBtnVisible = false;
+            }
         }
     };
 
     if (scrollBtn) {
-        window.addEventListener('scroll', toggleScrollBtn);
+        window.addEventListener('scroll', toggleScrollBtn, { passive: true });
         toggleScrollBtn();
 
         scrollBtn.addEventListener('click', function () {
