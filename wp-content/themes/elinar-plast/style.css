@@ -230,7 +230,7 @@ img {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #2c2c2c;
+    background: #121F3D;
     min-width: 200px;
     max-width: 240px;
     padding: 0.5rem 0;
@@ -362,9 +362,9 @@ img {
 /* Header */
 .site-header {
     height: var(--header-height);
-    background: #2c2c2c;
-    /* Multiplast Dark Grey */
-    border-bottom: 1px solid #404040;
+    background: #121F3D;
+    /* Navy Blue */
+    border-bottom: 1px solid #1e293b;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -2060,6 +2060,14 @@ tr:nth-child(even) {
 
 .text-secondary {
     color: var(--color-secondary) !important;
+}
+
+.text-dark {
+    color: var(--color-secondary) !important;
+}
+
+.text-muted {
+    color: #94a3b8 !important;
 }
 
 .bg-light {

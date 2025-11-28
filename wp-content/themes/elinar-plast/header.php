@@ -25,7 +25,7 @@
                     // Fallback if no menu assigned
                     'fallback_cb' => function () {
                         echo '<ul>
-                        <li class="menu-item"><a href="' . home_url('/') . '" class="home-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Главная</a></li>
+                        <li class="menu-item"><a href="' . home_url('/') . '">Главная</a></li>
                         <li class="menu-item"><a href="' . home_url('/about') . '">О компании</a></li>
                         <li class="menu-item"><a href="' . home_url('/products') . '">Продукция</a></li>
                         <li class="menu-item menu-item-has-children">
