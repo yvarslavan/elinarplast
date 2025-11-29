@@ -678,25 +678,22 @@ img {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
-    /* Turquoise-green gradient for prominence and technological feel */
-    background: linear-gradient(135deg, #14b8a6 0%, #10b981 50%, #059669 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* Turquoise color matching logo - lighter shade */
+    color: #00B8C8;
     /* Strong outline effect using text-stroke - dark for contrast */
     -webkit-text-stroke: 2.5px #0f172a;
     text-stroke: 2.5px #0f172a;
-    /* Enhanced depth effect with turquoise-green glow and shadows */
+    /* Enhanced depth effect with turquoise glow and shadows */
     text-shadow:
-        /* Turquoise-green glow effect */
-        0 0 30px rgba(20, 184, 166, 0.8),
-        0 0 60px rgba(20, 184, 166, 0.5),
-        0 0 90px rgba(16, 185, 129, 0.3),
+        /* Turquoise glow effect matching logo color */
+        0 0 30px rgba(0, 184, 200, 0.8),
+        0 0 60px rgba(0, 168, 184, 0.5),
+        0 0 90px rgba(0, 131, 143, 0.3),
         /* Depth shadows - more pronounced */
         0 3px 6px rgba(0, 0, 0, 0.7),
         0 6px 12px rgba(0, 0, 0, 0.6),
         0 9px 18px rgba(0, 0, 0, 0.5);
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(20, 184, 166, 0.4));
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(0, 184, 200, 0.4));
     z-index: 3;
 }
 
