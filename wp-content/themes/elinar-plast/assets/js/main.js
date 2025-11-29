@@ -142,6 +142,218 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Chamfer Modal Trigger (Фаскообразователи)
+    const chamferTrigger = document.getElementById('chamfer-modal-trigger');
+    const chamferModal = document.getElementById('chamfer-modal');
+    const chamferClose = chamferModal ? chamferModal.querySelector('.modal-close') : null;
+
+    if (chamferTrigger && chamferModal) {
+        chamferTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            chamferModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        if (chamferClose) {
+            chamferClose.addEventListener('click', function () {
+                chamferModal.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close on outside click
+        window.addEventListener('click', function (e) {
+            if (e.target === chamferModal) {
+                chamferModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && chamferModal.classList.contains('show')) {
+                chamferModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // CTA Button Scroll Logic
+        const chamferCtaBtn = document.getElementById('chamfer-cta-btn');
+        if (chamferCtaBtn) {
+            chamferCtaBtn.addEventListener('click', function () {
+                chamferModal.classList.remove('show');
+                document.body.style.overflow = '';
+
+                // Small timeout to allow layout to update
+                setTimeout(function () {
+                    const contactForm = document.querySelector('#contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            });
+        }
+    }
+
+    // Profiles Modal Trigger (Втулки и профили)
+    const profilesTrigger = document.getElementById('profiles-modal-trigger');
+    const profilesModal = document.getElementById('profiles-modal');
+    const profilesClose = profilesModal ? profilesModal.querySelector('.modal-close') : null;
+
+    if (profilesTrigger && profilesModal) {
+        profilesTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            profilesModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        if (profilesClose) {
+            profilesClose.addEventListener('click', function () {
+                profilesModal.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close on outside click
+        window.addEventListener('click', function (e) {
+            if (e.target === profilesModal) {
+                profilesModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && profilesModal.classList.contains('show')) {
+                profilesModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // CTA Button Scroll Logic
+        const profilesCtaBtn = document.getElementById('profiles-cta-btn');
+        if (profilesCtaBtn) {
+            profilesCtaBtn.addEventListener('click', function () {
+                profilesModal.classList.remove('show');
+                document.body.style.overflow = '';
+
+                // Small timeout to allow layout to update
+                setTimeout(function () {
+                    const contactForm = document.querySelector('#contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            });
+        }
+    }
+
+    // Injection Molding Modal Trigger (Литье под давлением)
+    const injectionTrigger = document.getElementById('injection-modal-trigger');
+    const injectionModal = document.getElementById('injection-modal');
+    const injectionClose = injectionModal ? injectionModal.querySelector('.modal-close') : null;
+
+    if (injectionTrigger && injectionModal) {
+        injectionTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            injectionModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        if (injectionClose) {
+            injectionClose.addEventListener('click', function () {
+                injectionModal.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close on outside click
+        window.addEventListener('click', function (e) {
+            if (e.target === injectionModal) {
+                injectionModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && injectionModal.classList.contains('show')) {
+                injectionModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // CTA Button Scroll Logic
+        const injectionCtaBtn = document.getElementById('injection-cta-btn');
+        if (injectionCtaBtn) {
+            injectionCtaBtn.addEventListener('click', function () {
+                injectionModal.classList.remove('show');
+                document.body.style.overflow = '';
+
+                // Small timeout to allow layout to update
+                setTimeout(function () {
+                    const contactForm = document.querySelector('#contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            });
+        }
+    }
+
+    // Extruded Products Modal Trigger (Погонажные изделия)
+    const extrudedTrigger = document.getElementById('extruded-modal-trigger');
+    const extrudedModal = document.getElementById('extruded-modal');
+    const extrudedClose = extrudedModal ? extrudedModal.querySelector('.modal-close') : null;
+
+    if (extrudedTrigger && extrudedModal) {
+        extrudedTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            extrudedModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        if (extrudedClose) {
+            extrudedClose.addEventListener('click', function () {
+                extrudedModal.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close on outside click
+        window.addEventListener('click', function (e) {
+            if (e.target === extrudedModal) {
+                extrudedModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && extrudedModal.classList.contains('show')) {
+                extrudedModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // CTA Button Scroll Logic
+        const extrudedCtaBtn = document.getElementById('extruded-cta-btn');
+        if (extrudedCtaBtn) {
+            extrudedCtaBtn.addEventListener('click', function () {
+                extrudedModal.classList.remove('show');
+                document.body.style.overflow = '';
+
+                // Small timeout to allow layout to update
+                setTimeout(function () {
+                    const contactForm = document.querySelector('#contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            });
+        }
+    }
+
     // --- IMAGE LIGHTBOX LOGIC ---
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');

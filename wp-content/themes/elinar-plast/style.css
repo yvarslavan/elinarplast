@@ -1477,7 +1477,10 @@ tr:nth-child(even) {
     font-size: 1rem;
     color: #334155;
     margin-bottom: 2rem;
-    max-width: 800px;
+    text-align: justify;
+    text-justify: inter-word;
+    width: 100%;
+    padding: 0;
 }
 
 .pvc-features-title {
@@ -1542,6 +1545,8 @@ tr:nth-child(even) {
     font-size: 0.9rem;
     color: #64748b;
     line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Dark Section */
@@ -1605,6 +1610,8 @@ tr:nth-child(even) {
 .pvc-footer-text {
     color: #64748b;
     font-size: 0.95rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .pvc-footer-action {

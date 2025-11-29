@@ -89,7 +89,7 @@
                     <div class="card-body">
                         <h3>Фаскообразователи</h3>
                         <p>Профили для создания фасок на железобетонных изделиях.</p>
-                        <a href="#" class="link-arrow">Подробнее &rarr;</a>
+                        <a href="#" class="link-arrow" id="chamfer-modal-trigger">Подробнее &rarr;</a>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                     <div class="card-body">
                         <h3>Втулки и профили</h3>
                         <p>Технические профили и комплектующие по чертежам заказчика.</p>
-                        <a href="#" class="link-arrow">Подробнее &rarr;</a>
+                        <a href="#" class="link-arrow" id="profiles-modal-trigger">Подробнее &rarr;</a>
                     </div>
                 </div>
 
@@ -105,7 +105,7 @@
                     <div class="card-body">
                         <h3>Литье под давлением</h3>
                         <p>Серийное производство деталей весом от 1г до 5кг.</p>
-                        <a href="#" class="link-arrow">Подробнее &rarr;</a>
+                        <a href="#" class="link-arrow" id="injection-modal-trigger">Подробнее &rarr;</a>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@
                     <div class="card-body">
                         <h3>Погонажные изделия</h3>
                         <p>Шланги, трубки, уплотнители из ПВХ, ТЭП и других материалов.</p>
-                        <a href="#" class="link-arrow">Подробнее &rarr;</a>
+                        <a href="#" class="link-arrow" id="extruded-modal-trigger">Подробнее &rarr;</a>
                     </div>
                 </div>
 
@@ -371,6 +371,313 @@
                 <div class="pvc-footer-action">
                     <span class="pvc-cta-text">Нужно создать новую форму или работать по вашему чертежу?</span>
                     <button class="btn-pvc-cta" id="pvc-cta-btn">ОТПРАВИТЬ ЧЕРТЕЖ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chamfer Modal (Фаскообразователи) -->
+    <div id="chamfer-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+
+            <div class="pvc-modal-header">
+                <h2 class="pvc-title">Фаскообразователи для ЖБИ</h2>
+                <p class="pvc-description">
+                    Профили фаскообразователей позволяют формировать аккуратные и устойчивые фаски на железобетонных изделиях. Материал профилей выдерживает многократные циклы заливки, не деформируется и не впитывает влагу, что снижает процент брака и обеспечивает стабильную геометрию кромок.
+                </p>
+
+                <div class="pvc-features-title">ТАКИЕ ПРОФИЛИ ПОМОГАЮТ:</div>
+
+                <div class="pvc-features-grid">
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Улучшить внешний вид</div>
+                        <div class="pvc-feature-desc">Улучшить внешний вид и качество ЖБИ за счёт чистой и точной фаски.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Защитить углы</div>
+                        <div class="pvc-feature-desc">Защитить углы от сколов и повреждений в процессе эксплуатации.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Ускорить формовку</div>
+                        <div class="pvc-feature-desc">Ускорить формовку изделий и сократить время обработки.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Продлить срок службы</div>
+                        <div class="pvc-feature-desc">Продлить срок службы производственной оснастки.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Обеспечить качество</div>
+                        <div class="pvc-feature-desc">Обеспечить предсказуемое качество при высокой интенсивности производства.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Универсальность</div>
+                        <div class="pvc-feature-desc">Подходят для плит, блоков, лотков, лестничных элементов и других железобетонных конструкций, где важна долговечность и точность кромок.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-dark-section">
+                <h3 class="pvc-dark-title">Индивидуальное производство «под задачу»</h3>
+                <p class="pvc-dark-subtitle">Мы не просто производим профиль, мы сопровождаем проект на всех этапах:</p>
+
+                <div class="pvc-steps-grid">
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">01</div>
+                        <div class="pvc-step-text">Разработка совместно с<br>инженером-технологом</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">02</div>
+                        <div class="pvc-step-text">Адаптация к конкретным ЖБИ<br>изделиям и формам</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">03</div>
+                        <div class="pvc-step-text">Подбор материала и оптимизация<br>геометрии профиля</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">04</div>
+                        <div class="pvc-step-text">Выпуск опытных партий и серийное<br>производство</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-modal-footer">
+                <p class="pvc-footer-text">Фаскообразователи обеспечивают стабильную геометрию кромок, снижают процент брака и повышают качество железобетонных изделий, что особенно важно для современных строительных проектов.</p>
+
+                <div class="pvc-footer-action">
+                    <span class="pvc-cta-text">Нужно создать новую форму или работать по вашему чертежу?</span>
+                    <button class="btn-pvc-cta" id="chamfer-cta-btn">ОТПРАВИТЬ ЧЕРТЕЖ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profiles Modal (Втулки и профили) -->
+    <div id="profiles-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+
+            <div class="pvc-modal-header">
+                <h2 class="pvc-title">Технические профили и комплектующие</h2>
+                <div class="pvc-subtitle">Изготовление по индивидуальным чертежам заказчика</div>
+                <p class="pvc-description">
+                    Профессиональное производство технических профилей и комплектующих для различных отраслей промышленности. Мы изготавливаем <strong>втулки, уплотнители, направляющие, защитные элементы и другие технические детали</strong> по вашим чертежам и техническим требованиям. Наше производство обеспечивает высокую точность геометрии, стабильность размеров и долговечность изделий.
+                </p>
+
+                <div class="pvc-features-title">ПОЧЕМУ ВЫБИРАЮТ НАШИ ТЕХНИЧЕСКИЕ ПРОФИЛИ:</div>
+
+                <div class="pvc-features-grid">
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Точное соответствие чертежам</div>
+                        <div class="pvc-feature-desc">Строгое соблюдение всех размеров, допусков и технических требований, указанных в ваших чертежах.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Широкий спектр материалов</div>
+                        <div class="pvc-feature-desc">Работаем с различными видами пластиков: ПВХ, ПЭ, ПП, АБС и другими, подбирая оптимальный материал под ваши задачи.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Любая сложность</div>
+                        <div class="pvc-feature-desc">Изготовление профилей любой геометрии: от простых круглых втулок до сложных многокамерных конструкций.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Стабильность размеров</div>
+                        <div class="pvc-feature-desc">Гарантированная повторяемость геометрии и размеров в каждой партии благодаря современному оборудованию.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Долговечность</div>
+                        <div class="pvc-feature-desc">Изделия устойчивы к износу, воздействию агрессивных сред и перепадам температур.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Универсальность применения</div>
+                        <div class="pvc-feature-desc">Подходят для машиностроения, приборостроения, вентиляции, мебельной промышленности и других отраслей.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-dark-section">
+                <h3 class="pvc-dark-title">Индивидуальное производство «под задачу»</h3>
+                <p class="pvc-dark-subtitle">Мы не просто производим профиль, мы сопровождаем проект на всех этапах:</p>
+
+                <div class="pvc-steps-grid">
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">01</div>
+                        <div class="pvc-step-text">Анализ чертежей и технических<br>требований заказчика</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">02</div>
+                        <div class="pvc-step-text">Подбор материала и разработка<br>технологии производства</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">03</div>
+                        <div class="pvc-step-text">Изготовление оснастки и<br>оптимизация процесса</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">04</div>
+                        <div class="pvc-step-text">Контроль качества и серийное<br>производство</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-modal-footer">
+                <p class="pvc-footer-text">Наши технические профили и комплектующие обеспечивают надежность, точность и долговечность ваших изделий, что особенно важно для промышленного производства и инженерных решений.</p>
+
+                <div class="pvc-footer-action">
+                    <span class="pvc-cta-text">Нужно создать новую форму или работать по вашему чертежу?</span>
+                    <button class="btn-pvc-cta" id="profiles-cta-btn">ОТПРАВИТЬ ЧЕРТЕЖ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Injection Molding Modal (Литье под давлением) -->
+    <div id="injection-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+
+            <div class="pvc-modal-header">
+                <h2 class="pvc-title">Литье под давлением</h2>
+                <div class="pvc-subtitle">Серийное производство пластиковых деталей</div>
+                <p class="pvc-description">
+                    Профессиональное литьевое производство пластиковых изделий <strong>весом от 1 грамма до 5 килограммов</strong>. Мы изготавливаем детали сложной геометрии с высокой точностью размеров и отличным качеством поверхности. Наше оборудование позволяет производить серийные партии с гарантированной повторяемостью параметров и минимальным процентом брака.
+                </p>
+
+                <div class="pvc-features-title">ПРЕИМУЩЕСТВА ЛИТЬЯ ПОД ДАВЛЕНИЕМ:</div>
+
+                <div class="pvc-features-grid">
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Высокая точность</div>
+                        <div class="pvc-feature-desc">Точное соблюдение размеров и геометрии деталей с минимальными допусками благодаря современному оборудованию.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Широкий диапазон веса</div>
+                        <div class="pvc-feature-desc">Изготовление деталей от 1 грамма до 5 килограммов, подходящих для различных отраслей промышленности.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Сложная геометрия</div>
+                        <div class="pvc-feature-desc">Производство изделий с внутренними полостями, резьбой, закладными элементами и другими сложными формами.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Разнообразие материалов</div>
+                        <div class="pvc-feature-desc">Работа с различными видами пластиков: ПП, ПЭ, АБС, ПК, ПА и другими, в зависимости от требований заказчика.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Серийное производство</div>
+                        <div class="pvc-feature-desc">Оптимизированные процессы для выпуска больших партий с высокой производительностью и стабильным качеством.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Качество поверхности</div>
+                        <div class="pvc-feature-desc">Отличное качество поверхности готовых изделий без дополнительной механической обработки.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-dark-section">
+                <h3 class="pvc-dark-title">Индивидуальное производство «под задачу»</h3>
+                <p class="pvc-dark-subtitle">Мы не просто производим детали, мы сопровождаем проект на всех этапах:</p>
+
+                <div class="pvc-steps-grid">
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">01</div>
+                        <div class="pvc-step-text">Анализ чертежей и выбор<br>технологии литья</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">02</div>
+                        <div class="pvc-step-text">Проектирование и изготовление<br>пресс-формы</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">03</div>
+                        <div class="pvc-step-text">Подбор материала и<br>настройка параметров литья</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">04</div>
+                        <div class="pvc-step-text">Изготовление опытных образцов<br>и серийное производство</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-modal-footer">
+                <p class="pvc-footer-text">Литье под давлением обеспечивает высокую производительность, точность и экономичность при производстве пластиковых деталей, что особенно важно для серийного производства в различных отраслях промышленности.</p>
+
+                <div class="pvc-footer-action">
+                    <span class="pvc-cta-text">Нужно создать новую форму или работать по вашему чертежу?</span>
+                    <button class="btn-pvc-cta" id="injection-cta-btn">ОТПРАВИТЬ ЧЕРТЕЖ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Extruded Products Modal (Погонажные изделия) -->
+    <div id="extruded-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+
+            <div class="pvc-modal-header">
+                <h2 class="pvc-title">Погонажные изделия</h2>
+                <div class="pvc-subtitle">Экструзионное производство профилей и комплектующих</div>
+                <p class="pvc-description">
+                    Профессиональное производство погонажных изделий методом экструзии: <strong>шланги, трубки, уплотнители, профили из ПВХ, ТЭП и других материалов</strong>. Мы изготавливаем изделия различного сечения и длины с высоким качеством поверхности и стабильными геометрическими параметрами. Наше производство позволяет выпускать как стандартные, так и нестандартные профили по вашим требованиям.
+                </p>
+
+                <div class="pvc-features-title">ПРЕИМУЩЕСТВА НАШИХ ПОГОНАЖНЫХ ИЗДЕЛИЙ:</div>
+
+                <div class="pvc-features-grid">
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Широкий ассортимент</div>
+                        <div class="pvc-feature-desc">Шланги, трубки, уплотнители, профили различного сечения и назначения для разных отраслей промышленности.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Разнообразие материалов</div>
+                        <div class="pvc-feature-desc">Работа с ПВХ, ТЭП, ПЭ, ПП и другими материалами, подбирая оптимальный вариант под ваши задачи.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Любая длина</div>
+                        <div class="pvc-feature-desc">Изготовление изделий любой длины, включая намотку в бухты для удобства транспортировки и хранения.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Стабильность размеров</div>
+                        <div class="pvc-feature-desc">Гарантированная повторяемость геометрии и размеров по всей длине изделия благодаря современному оборудованию.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Качество поверхности</div>
+                        <div class="pvc-feature-desc">Гладкая и однородная поверхность изделий без дефектов, обеспечивающая отличные эксплуатационные свойства.</div>
+                    </div>
+                    <div class="pvc-feature-card">
+                        <div class="pvc-feature-title">Универсальность применения</div>
+                        <div class="pvc-feature-desc">Подходят для вентиляции, водоснабжения, уплотнения, изоляции и других технических применений.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-dark-section">
+                <h3 class="pvc-dark-title">Индивидуальное производство «под задачу»</h3>
+                <p class="pvc-dark-subtitle">Мы не просто производим профиль, мы сопровождаем проект на всех этапах:</p>
+
+                <div class="pvc-steps-grid">
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">01</div>
+                        <div class="pvc-step-text">Анализ требований и подбор<br>материала</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">02</div>
+                        <div class="pvc-step-text">Проектирование и изготовление<br>экструзионной оснастки</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">03</div>
+                        <div class="pvc-step-text">Настройка процесса экструзии<br>и оптимизация параметров</div>
+                    </div>
+                    <div class="pvc-step">
+                        <div class="pvc-step-num">04</div>
+                        <div class="pvc-step-text">Контроль качества и серийное<br>производство</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pvc-modal-footer">
+                <p class="pvc-footer-text">Наши погонажные изделия обеспечивают надежность, долговечность и отличные эксплуатационные характеристики, что особенно важно для технических применений в различных отраслях промышленности.</p>
+
+                <div class="pvc-footer-action">
+                    <span class="pvc-cta-text">Нужно создать новую форму или работать по вашему чертежу?</span>
+                    <button class="btn-pvc-cta" id="extruded-cta-btn">ОТПРАВИТЬ ЧЕРТЕЖ</button>
                 </div>
             </div>
         </div>
