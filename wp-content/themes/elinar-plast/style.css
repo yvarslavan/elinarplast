@@ -776,6 +776,22 @@ img {
     line-height: 1;
 }
 
+/* Стили для цветных иконок в секции "Инженерия и разработка" */
+.feature-icon-small svg,
+.feature-row .feature-icon-small svg,
+.service-features .feature-icon-small svg,
+.service-features .feature-row .feature-icon-small svg {
+    stroke: #f59e0b !important;
+    fill: none !important;
+    color: transparent !important;
+}
+
+/* Убеждаемся, что stroke-width сохраняется */
+.feature-icon-small svg,
+.service-features .feature-icon-small svg {
+    stroke-width: 2 !important;
+}
+
 .feature-item h4 {
     margin-bottom: 0.5rem;
 }
@@ -1065,6 +1081,13 @@ img {
 
     .header-actions .btn {
         display: none;
+    }
+
+    /* Сохранение цветных иконок на мобильных устройствах */
+    .service-features .feature-icon-small svg,
+    .feature-icon-small svg {
+        stroke: #f59e0b !important;
+        fill: none !important;
     }
 
     /* Hide desktop CTA on mobile */
@@ -2029,6 +2052,8 @@ tr:nth-child(even) {
         padding: 0 !important;
         margin: 0 !important;
         border: none !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease !important;
     }
 
     .menu-toggle span {
@@ -2039,7 +2064,42 @@ tr:nth-child(even) {
         border-radius: 2px !important;
         opacity: 1 !important;
         visibility: visible !important;
-        transition: all 0.3s ease !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transform-origin: center !important;
+        pointer-events: none !important;
+    }
+
+    /* Анимация превращения гамбургера в крестик */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(10.5px) rotate(45deg) !important;
+        background-color: #1e293b !important;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+        transform: scaleX(0) !important;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-10.5px) rotate(-45deg) !important;
+        background-color: #1e293b !important;
+    }
+
+    /* Визуальный индикатор активного состояния - белый фон */
+    .menu-toggle.active {
+        background-color: #ffffff !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Hover эффект для лучшей интерактивности */
+    .menu-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .menu-toggle.active:hover {
+        background-color: #f8f9fa !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
     }
 
     /* Ensure header container doesn't hide overflow */

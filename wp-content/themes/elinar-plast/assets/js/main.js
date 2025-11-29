@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
     }
 
