@@ -608,15 +608,17 @@ img {
 .hero-logo-overlay {
     position: absolute;
     top: 50%;
-    right: -5%;
-    /* Moved inward to ensure visibility */
+    right: 5%;
+    /* Positioned within page boundaries */
     left: auto;
     /* Reset left */
     transform: translateY(-50%) rotate(-5deg);
     z-index: 1;
     pointer-events: none;
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
+    max-width: calc(100% - 2rem);
+    /* Prevent overflow */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -635,18 +637,22 @@ img {
 }
 
 .hero-content {
-    max-width: 600px;
-    /* Constrain width to avoid overlap */
+    max-width: 800px;
+    /* Increased width to accommodate slogan */
     position: relative;
     z-index: 2;
     margin-left: 0;
     /* Keep left aligned */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero h1 {
     color: #fff;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    font-weight: 600;
+    opacity: 0.9;
 }
 
 .hero .lead {
@@ -654,6 +660,44 @@ img {
     color: #cbd5e1;
     margin-bottom: 2.5rem;
     text-align: justify;
+}
+
+/* Hero Slogan - Durability & Reliability Emphasis - Prominent Display */
+.hero-slogan {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-align: left;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    line-height: 1.2;
+    /* Prevent overflow */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    /* Turquoise-green gradient for prominence and technological feel */
+    background: linear-gradient(135deg, #14b8a6 0%, #10b981 50%, #059669 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Strong outline effect using text-stroke - dark for contrast */
+    -webkit-text-stroke: 2.5px #0f172a;
+    text-stroke: 2.5px #0f172a;
+    /* Enhanced depth effect with turquoise-green glow and shadows */
+    text-shadow:
+        /* Turquoise-green glow effect */
+        0 0 30px rgba(20, 184, 166, 0.8),
+        0 0 60px rgba(20, 184, 166, 0.5),
+        0 0 90px rgba(16, 185, 129, 0.3),
+        /* Depth shadows - more pronounced */
+        0 3px 6px rgba(0, 0, 0, 0.7),
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        0 9px 18px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(20, 184, 166, 0.4));
+    z-index: 3;
 }
 
 .hero-actions {
@@ -1026,7 +1070,26 @@ img {
     /* Hide desktop CTA on mobile */
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero-slogan {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        margin: 0 0 1.5rem 0;
+        /* Preserve all styling effects */
+        background: linear-gradient(135deg, #14b8a6 0%, #10b981 50%, #059669 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 2px #0f172a;
+        text-stroke: 2px #0f172a;
+        text-shadow:
+            0 0 20px rgba(20, 184, 166, 0.7),
+            0 0 40px rgba(20, 184, 166, 0.4),
+            0 0 60px rgba(16, 185, 129, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.6),
+            0 4px 8px rgba(0, 0, 0, 0.5);
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 15px rgba(20, 184, 166, 0.3));
     }
 
     .split-layout,
@@ -1073,7 +1136,27 @@ img {
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .hero-slogan {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        text-align: center;
+        margin: 0 auto 1.5rem;
+        /* Preserve all styling effects */
+        background: linear-gradient(135deg, #14b8a6 0%, #10b981 50%, #059669 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1.5px #0f172a;
+        text-stroke: 1.5px #0f172a;
+        text-shadow:
+            0 0 15px rgba(20, 184, 166, 0.6),
+            0 0 30px rgba(20, 184, 166, 0.3),
+            0 0 45px rgba(16, 185, 129, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.6),
+            0 4px 8px rgba(0, 0, 0, 0.5);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(20, 184, 166, 0.3));
     }
 
     .hero-logo-overlay {
@@ -1765,6 +1848,12 @@ tr:nth-child(even) {
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    touch-action: manipulation;
+    /* Improve touch responsiveness on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Remove tap highlight on mobile */
+    user-select: none;
+    /* Prevent text selection */
 }
 
 .fab-trigger:hover {
@@ -1826,16 +1915,23 @@ tr:nth-child(even) {
     .fab-container {
         bottom: 20px;
         right: 20px;
+        z-index: 1500;
+        /* Ensure FAB is above other elements */
     }
 
     .fab-trigger {
         width: 50px;
         height: 50px;
+        touch-action: manipulation;
+        /* Improve touch responsiveness */
+        -webkit-tap-highlight-color: transparent;
     }
 
     .fab-item {
         width: 40px;
         height: 40px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
 }
 
@@ -1864,6 +1960,12 @@ tr:nth-child(even) {
     transform: translateY(20px);
     transition: all 0.3s ease;
     z-index: 1400;
+    touch-action: manipulation;
+    /* Improve touch responsiveness on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Remove tap highlight on mobile */
+    user-select: none;
+    /* Prevent text selection */
 }
 
 .scroll-top-btn.visible {
@@ -1887,10 +1989,15 @@ tr:nth-child(even) {
 
 @media (max-width: 640px) {
     .scroll-top-btn {
-        right: 90px;
-        bottom: 25px;
-        width: 40px;
-        height: 40px;
+        right: 80px;
+        bottom: 20px;
+        width: 45px;
+        height: 45px;
+        z-index: 1400;
+        /* Ensure it's visible but below FAB */
+        touch-action: manipulation;
+        /* Improve touch responsiveness */
+        -webkit-tap-highlight-color: transparent;
     }
 }
 

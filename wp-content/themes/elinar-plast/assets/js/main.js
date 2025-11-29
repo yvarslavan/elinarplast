@@ -193,13 +193,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const fabTrigger = document.getElementById('fab-trigger');
 
     if (fabContainer && fabTrigger) {
-        fabTrigger.addEventListener('click', function () {
+        // Support both click and touch events for mobile
+        const toggleFab = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
             fabContainer.classList.toggle('active');
             fabTrigger.classList.toggle('active');
-        });
+        };
+
+        fabTrigger.addEventListener('click', toggleFab);
+        fabTrigger.addEventListener('touchend', toggleFab);
 
         // Close FAB when clicking outside
         document.addEventListener('click', function (e) {
+            if (!fabContainer.contains(e.target) && fabContainer.classList.contains('active')) {
+                fabContainer.classList.remove('active');
+                fabTrigger.classList.remove('active');
+            }
+        });
+
+        // Also close on touch outside for mobile
+        document.addEventListener('touchend', function (e) {
             if (!fabContainer.contains(e.target) && fabContainer.classList.contains('active')) {
                 fabContainer.classList.remove('active');
                 fabTrigger.classList.remove('active');
@@ -213,7 +227,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const toggleScrollBtn = () => {
         if (!scrollBtn) return;
-        if (window.scrollY > 200) {
+        // Show button after scrolling 200px, works on both desktop and mobile
+        if (window.scrollY > 200 || window.pageYOffset > 200) {
             if (!scrollBtnVisible) {
                 scrollBtn.classList.add('visible');
                 scrollBtnVisible = true;
@@ -227,14 +242,20 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     if (scrollBtn) {
+        // Use both scroll and touchmove events for better mobile support
         window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+        window.addEventListener('touchmove', toggleScrollBtn, { passive: true });
         toggleScrollBtn();
 
-        scrollBtn.addEventListener('click', function () {
+        const scrollToTop = function (e) {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        });
+        };
+
+        scrollBtn.addEventListener('click', scrollToTop);
+        scrollBtn.addEventListener('touchend', scrollToTop);
     }
 });
