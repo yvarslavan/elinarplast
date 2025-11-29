@@ -89,17 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, { passive: true });
 
-    // PVC Modal Trigger
-    const pvcTrigger = document.getElementById('pvc-modal-trigger');
+    // PVC Modal - Initialize close handlers first (works on all pages)
     const pvcModal = document.getElementById('pvc-modal');
-    const pvcClose = pvcModal ? pvcModal.querySelector('.modal-close') : null;
-
-    if (pvcTrigger && pvcModal) {
-        pvcTrigger.addEventListener('click', function (e) {
-            e.preventDefault();
-            pvcModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
+    if (pvcModal) {
+        const pvcClose = pvcModal.querySelector('.modal-close');
 
         if (pvcClose) {
             pvcClose.addEventListener('click', function () {
@@ -109,16 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Close on outside click
-        window.addEventListener('click', function (e) {
+        pvcModal.addEventListener('click', function (e) {
             if (e.target === pvcModal) {
-                pvcModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && pvcModal.classList.contains('show')) {
                 pvcModal.classList.remove('show');
                 document.body.style.overflow = '';
             }
@@ -142,17 +127,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Chamfer Modal Trigger (Фаскообразователи)
-    const chamferTrigger = document.getElementById('chamfer-modal-trigger');
-    const chamferModal = document.getElementById('chamfer-modal');
-    const chamferClose = chamferModal ? chamferModal.querySelector('.modal-close') : null;
-
-    if (chamferTrigger && chamferModal) {
-        chamferTrigger.addEventListener('click', function (e) {
+    // PVC Modal Trigger (from main page)
+    const pvcTrigger = document.getElementById('pvc-modal-trigger');
+    if (pvcTrigger && pvcModal) {
+        pvcTrigger.addEventListener('click', function (e) {
             e.preventDefault();
-            chamferModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            pvcModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
         });
+    }
+
+    // Chamfer Modal - Initialize close handlers first (works on all pages)
+    const chamferModal = document.getElementById('chamfer-modal');
+    if (chamferModal) {
+        const chamferClose = chamferModal.querySelector('.modal-close');
 
         if (chamferClose) {
             chamferClose.addEventListener('click', function () {
@@ -162,16 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Close on outside click
-        window.addEventListener('click', function (e) {
+        chamferModal.addEventListener('click', function (e) {
             if (e.target === chamferModal) {
-                chamferModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && chamferModal.classList.contains('show')) {
                 chamferModal.classList.remove('show');
                 document.body.style.overflow = '';
             }
@@ -195,17 +175,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Profiles Modal Trigger (Втулки и профили)
-    const profilesTrigger = document.getElementById('profiles-modal-trigger');
-    const profilesModal = document.getElementById('profiles-modal');
-    const profilesClose = profilesModal ? profilesModal.querySelector('.modal-close') : null;
-
-    if (profilesTrigger && profilesModal) {
-        profilesTrigger.addEventListener('click', function (e) {
+    // Chamfer Modal Trigger (from main page)
+    const chamferTrigger = document.getElementById('chamfer-modal-trigger');
+    if (chamferTrigger && chamferModal) {
+        chamferTrigger.addEventListener('click', function (e) {
             e.preventDefault();
-            profilesModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            chamferModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
         });
+    }
+
+    // Profiles Modal - Initialize close handlers first (works on all pages)
+    const profilesModal = document.getElementById('profiles-modal');
+    if (profilesModal) {
+        const profilesClose = profilesModal.querySelector('.modal-close');
 
         if (profilesClose) {
             profilesClose.addEventListener('click', function () {
@@ -215,16 +198,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Close on outside click
-        window.addEventListener('click', function (e) {
+        profilesModal.addEventListener('click', function (e) {
             if (e.target === profilesModal) {
-                profilesModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && profilesModal.classList.contains('show')) {
                 profilesModal.classList.remove('show');
                 document.body.style.overflow = '';
             }
@@ -248,17 +223,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Injection Molding Modal Trigger (Литье под давлением)
-    const injectionTrigger = document.getElementById('injection-modal-trigger');
-    const injectionModal = document.getElementById('injection-modal');
-    const injectionClose = injectionModal ? injectionModal.querySelector('.modal-close') : null;
-
-    if (injectionTrigger && injectionModal) {
-        injectionTrigger.addEventListener('click', function (e) {
+    // Profiles Modal Trigger (from main page)
+    const profilesTrigger = document.getElementById('profiles-modal-trigger');
+    if (profilesTrigger && profilesModal) {
+        profilesTrigger.addEventListener('click', function (e) {
             e.preventDefault();
-            injectionModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            profilesModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
         });
+    }
+
+    // Injection Molding Modal - Initialize close handlers first (works on all pages)
+    const injectionModal = document.getElementById('injection-modal');
+    if (injectionModal) {
+        const injectionClose = injectionModal.querySelector('.modal-close');
 
         if (injectionClose) {
             injectionClose.addEventListener('click', function () {
@@ -268,16 +246,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Close on outside click
-        window.addEventListener('click', function (e) {
+        injectionModal.addEventListener('click', function (e) {
             if (e.target === injectionModal) {
-                injectionModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && injectionModal.classList.contains('show')) {
                 injectionModal.classList.remove('show');
                 document.body.style.overflow = '';
             }
@@ -300,6 +270,38 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+    // Injection Molding Modal Trigger (from main page)
+    const injectionTrigger = document.getElementById('injection-modal-trigger');
+    if (injectionTrigger && injectionModal) {
+        injectionTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            injectionModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close on Escape key (unified handler for all modals)
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            if (pvcModal && pvcModal.classList.contains('show')) {
+                pvcModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            if (chamferModal && chamferModal.classList.contains('show')) {
+                chamferModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            if (profilesModal && profilesModal.classList.contains('show')) {
+                profilesModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            if (injectionModal && injectionModal.classList.contains('show')) {
+                injectionModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+    });
 
     // Extruded Products Modal Trigger (Погонажные изделия)
     const extrudedTrigger = document.getElementById('extruded-modal-trigger');
@@ -353,6 +355,62 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+    // Footer Product Links - reuse existing modals
+    const footerPvcLink = document.getElementById('pvc-modal-trigger-footer');
+    const footerChamferLink = document.getElementById('chamfer-modal-trigger-footer');
+    const footerProfilesLink = document.getElementById('profiles-modal-trigger-footer');
+    const footerInjectionLink = document.getElementById('injection-modal-trigger-footer');
+
+    // PVC Modal from footer
+    if (footerPvcLink && pvcModal) {
+        footerPvcLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            pvcModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Chamfer Modal from footer
+    if (footerChamferLink && chamferModal) {
+        footerChamferLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            chamferModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Profiles Modal from footer
+    if (footerProfilesLink && profilesModal) {
+        footerProfilesLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            profilesModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Injection Modal from footer
+    if (footerInjectionLink && injectionModal) {
+        footerInjectionLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            injectionModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Universal Escape key handler for all modals
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            const modalIds = ['pvc-modal', 'chamfer-modal', 'profiles-modal', 'injection-modal', 'extruded-modal'];
+            modalIds.forEach(function (modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal && modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    });
 
     // --- IMAGE LIGHTBOX LOGIC ---
     const lightbox = document.getElementById('image-lightbox');
